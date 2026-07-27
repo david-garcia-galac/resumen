@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"></link>
+  <style>
+    body { margin: 0; background: oklch(0.14 0.02 255); }
+    a { color: oklch(0.78 0.14 205); } a:hover { color: oklch(0.85 0.12 205); }
+    ::selection { background: oklch(0.78 0.14 205 / 0.35); }
+    @keyframes pulseDot { 0%,100% { box-shadow: 0 0 0 0 oklch(0.78 0.14 205 / 0.55); } 50% { box-shadow: 0 0 0 10px oklch(0.78 0.14 205 / 0); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes wssFlow { to { background-position: 44px 0; } }
+    @keyframes layerPulse { 0%,100% { border-color: oklch(1 0 0 / 0.1); box-shadow: 0 0 0 0 transparent; } 50% { border-color: oklch(0.78 0.14 205 / 0.45); box-shadow: 0 0 26px 0 oklch(0.78 0.14 205 / 0.12); } }
+  </style>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+<section data-label="01 Propósito" data-speaker-notes="Problema: puente local por cliente, NAT, numeración dispersa. Propuesta: ERP multiempresa en la nube con agente saliente, mismo modelo que CACHICAMO y The Factory HKA." style="width:1920px;height:1080px;background:oklch(0.14 0.02 255);position:relative;overflow:hidden;font-family:'IBM Plex Sans',sans-serif;display:flex;flex-direction:column;">
+  <div style="position:absolute;inset:0;background:radial-gradient(1100px 600px at 85% -10%, oklch(0.3 0.06 205 / 0.35), transparent 60%);pointer-events:none;"></div>
+  <div style="position:relative;z-index:2;display:flex;align-items:center;gap:8px;padding:26px 90px 0;">
+    <span style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:oklch(0.97 0.005 255);letter-spacing:0.02em;margin-right:20px;">Galac</span>
+    <sc-for list="{{ tabsSlide0 }}" as="tab" hint-placeholder-count="4">
+      <div onClick="{{ tab.goTo }}" style="{{ tab.style }}">{{ tab.label }}</div>
+    </sc-for>
+    <div style="flex:1;"></div>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.5 0.02 255);">01 / 05</span>
+  </div>
+
+  <div style="padding:30px 90px 0;position:relative;">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.12em;color:oklch(0.78 0.14 205);text-transform:uppercase;margin-bottom:10px;">01 · Resumen ejecutivo</div>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:46px;font-weight:700;color:oklch(0.97 0.005 255);margin:0 0 10px 0;">Propósito y valor del producto</h1>
+    <p style="font-size:19px;color:oklch(0.72 0.02 255);margin:0;max-width:1100px;">Centraliza la facturación fiscal de múltiples empresas en una sola plataforma, sin sacrificar aislamiento ni cumplimiento.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:26px;padding:36px 90px 0;position:relative;flex:0.8;min-height:0;">
+    <div style="background:oklch(0.2 0.028 255 / 0.55);backdrop-filter:blur(12px);border:1px solid oklch(1 0 0 / 0.1);border-radius:16px;padding:26px 30px;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;color:oklch(0.78 0.13 75);margin-bottom:10px;">Problema de negocio</div>
+      <p style="font-size:16.5px;line-height:1.6;color:oklch(0.72 0.02 255);margin:0;">Hoy, facturar fiscalmente depende de un <strong style="color:oklch(0.9 0.01 255);">puente local instalado en el computador del cliente</strong>, que expone un servicio HTTP en su red y no es alcanzable desde la nube por diseño (NAT). Eso ata el sistema a infraestructura por cliente, dificulta el soporte remoto, y deja la numeración legal y el cálculo de impuestos dispersos entre módulos poco integrados de inventario, ventas y compras.</p>
+    </div>
+    <div style="background:oklch(0.2 0.028 255 / 0.55);backdrop-filter:blur(12px);border:1px solid oklch(0.78 0.14 205 / 0.35);border-radius:16px;padding:26px 30px;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;color:oklch(0.78 0.14 205);margin-bottom:10px;">Propuesta de valor</div>
+      <p style="font-size:16.5px;line-height:1.6;color:oklch(0.72 0.02 255);margin:0;">Galac es un <strong style="color:oklch(0.9 0.01 255);">ERP en la nube</strong> donde cada empresa opera en un espacio de datos completamente aislado, con facturación, inventario, ventas y compras integrados de punta a punta. La impresora fiscal se conecta a la nube mediante un <strong style="color:oklch(0.9 0.01 255);">agente saliente</strong> —el mismo modelo de los líderes del mercado (CACHICAMO, The Factory HKA)— sin exponer la red del cliente a internet.</p>
+    </div>
+  </div>
+
+  <div style="padding:36px 90px 0;position:relative;flex:1;display:flex;flex-direction:column;min-height:0;">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:oklch(0.55 0.02 255);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;">Beneficios clave</div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:18px;flex:1;">
+      <sc-for list="{{ benefits }}" as="b" hint-placeholder-count="5">
+        <div style="background:oklch(0.2 0.028 255 / 0.55);border:1px solid oklch(1 0 0 / 0.1);border-radius:14px;padding:26px 24px;transition:all 0.25s ease;" style-hover="border-color:oklch(0.78 0.14 205 / 0.5);transform:translateY(-3px);">
+          <span style="color:oklch(0.78 0.14 205);font-size:18px;">→</span>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;color:oklch(0.97 0.005 255);margin-top:14px;line-height:1.25;">{{ b.name }}</div>
+          <div style="font-size:15px;color:oklch(0.62 0.02 255);margin-top:10px;line-height:1.5;">{{ b.text }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="padding:34px 90px 48px;border-top:1px solid oklch(1 0 0 / 0.08);display:flex;gap:56px;position:relative;">
+    <div style="flex-shrink:0;font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.55 0.02 255);letter-spacing:0.08em;text-transform:uppercase;padding-top:4px;">Alineación<br></br>estratégica</div>
+    <div style="flex:1;"><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:oklch(0.97 0.005 255);margin-bottom:8px;">Crecimiento sin fricción operativa</div><div style="font-size:15.5px;color:oklch(0.62 0.02 255);line-height:1.5;">Incorporar una nueva empresa es aprovisionar un esquema, no instalar infraestructura dedicada.</div></div>
+    <div style="flex:1;"><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:oklch(0.97 0.005 255);margin-bottom:8px;">Diferenciación frente a competencia</div><div style="font-size:15.5px;color:oklch(0.62 0.02 255);line-height:1.5;">Adopta el mismo modelo de agente-nube que los líderes de facturación fiscal en Venezuela.</div></div>
+    <div style="flex:1;"><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:oklch(0.97 0.005 255);margin-bottom:8px;">Base para nuevos módulos</div><div style="font-size:15.5px;color:oklch(0.62 0.02 255);line-height:1.5;">Ventas, compras y comisiones ya integrados reducen el costo de construir el siguiente producto.</div></div>
+  </div>
+</section>
+
+<section data-label="02 Infraestructura" data-speaker-notes="Simular la petición: navegador → Cloudflare → Nginx → Django/Gunicorn → Redis → PostgreSQL. Destacar: portable a cualquier proveedor Ubuntu, 1 schema por empresa, cero exposición de red en el cliente." style="width:1920px;height:1080px;background:oklch(0.14 0.02 255);position:relative;overflow:hidden;font-family:'IBM Plex Sans',sans-serif;display:flex;flex-direction:column;">
+  <div style="position:absolute;inset:0;background:radial-gradient(1000px 500px at 10% -10%, oklch(0.3 0.06 205 / 0.3), transparent 60%);pointer-events:none;"></div>
+  <div style="position:relative;z-index:2;display:flex;align-items:center;gap:8px;padding:26px 90px 0;">
+    <span style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:oklch(0.97 0.005 255);letter-spacing:0.02em;margin-right:20px;">Galac</span>
+    <sc-for list="{{ tabsSlide1 }}" as="tab" hint-placeholder-count="4">
+      <div onClick="{{ tab.goTo }}" style="{{ tab.style }}">{{ tab.label }}</div>
+    </sc-for>
+    <div style="flex:1;"></div>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.5 0.02 255);">02 / 05</span>
+  </div>
+
+  <div style="display:flex;align-items:flex-end;gap:24px;padding:24px 90px 0;position:relative;">
+    <div style="flex:1;">
+      <h1 style="font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;color:oklch(0.97 0.005 255);margin:0 0 6px 0;">Infraestructura y despliegue</h1>
+      <p style="font-size:17px;color:oklch(0.65 0.02 255);margin:0;max-width:980px;">Arquitectura cloud en contenedores, con la base de datos aislada por empresa y cero exposición de red en el cliente. Portable a cualquier proveedor con Ubuntu (DO · AWS · Hetzner · GCP · Azure).</p>
+    </div>
+    <button onClick="{{ runSimulation }}" disabled="{{ simRunning }}" style="{{ playButtonStyle }}">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="oklch(0.14 0.02 255)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      <span>{{ playButtonLabel }}</span>
+    </button>
+    <button onClick="{{ resetSimulation }}" style="display:flex;align-items:center;gap:8px;background:transparent;border:1px solid oklch(1 0 0 / 0.15);color:oklch(0.7 0.02 255);font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;padding:12px 18px;border-radius:12px;cursor:pointer;flex-shrink:0;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+      Reiniciar
+    </button>
+    <div style="{{ responseBadgeStyle }}">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+      <span style="font-family:'IBM Plex Mono',monospace;">{{ responseBadgeText }}</span>
+    </div>
+  </div>
+
+  <div style="padding:36px 90px 0;position:relative;">
+    <div style="position:relative;height:172px;">
+      <div style="position:absolute;left:70px;right:70px;top:62px;height:3px;background:oklch(1 0 0 / 0.08);border-radius:2px;"></div>
+      <div style="position:absolute;left:70px;top:62px;height:3px;background:linear-gradient(90deg, oklch(0.78 0.14 205), oklch(0.6 0.13 205));border-radius:2px;transition:width 0.5s ease;width:{{ progressLineWidth }};"></div>
+      <div style="position:absolute;top:51px;transition:left 0.5s cubic-bezier(.4,0,.2,1);left:{{ dotLeftPercent }};transform:translateX(-50%);">
+        <div style="{{ dotStyle }}"></div>
+      </div>
+      <div style="position:absolute;top:0;left:70px;transform:translateX(-50%);width:160px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="{{ nodeCircleStyle0 }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
+        <div style="{{ nodeLabelStyle0 }}">Usuarios</div>
+        <div style="font-size:13.5px;color:oklch(0.55 0.02 255);margin-top:3px;">Navegador / POS</div>
+      </div>
+      <div style="position:absolute;top:0;left:calc(70px + 1*(100% - 140px)/5);transform:translateX(-50%);width:160px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="{{ nodeCircleStyle1 }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"></path></svg></div>
+        <div style="{{ nodeLabelStyle1 }}">Cloudflare</div>
+        <div style="font-size:13.5px;color:oklch(0.55 0.02 255);margin-top:3px;">DNS · WAF · TLS</div>
+      </div>
+      <div style="position:absolute;top:0;left:calc(70px + 2*(100% - 140px)/5);transform:translateX(-50%);width:160px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="{{ nodeCircleStyle2 }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M9 9h.01"></path><path d="M15 9h.01"></path><path d="M9 15h6"></path></svg></div>
+        <div style="{{ nodeLabelStyle2 }}">Nginx :80</div>
+        <div style="font-size:13.5px;color:oklch(0.55 0.02 255);margin-top:3px;">Reverse proxy · host + path</div>
+      </div>
+      <div style="position:absolute;top:0;left:calc(70px + 3*(100% - 140px)/5);transform:translateX(-50%);width:170px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="{{ nodeCircleStyle3 }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg></div>
+        <div style="{{ nodeLabelStyle3 }}">App · Docker</div>
+        <div style="font-size:13.5px;color:oklch(0.55 0.02 255);margin-top:3px;">Next.js · Django + Gunicorn</div>
+      </div>
+      <div style="position:absolute;top:0;left:calc(70px + 4*(100% - 140px)/5);transform:translateX(-50%);width:160px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="{{ nodeCircleStyle4 }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg></div>
+        <div style="{{ nodeLabelStyle4 }}">Redis</div>
+        <div style="font-size:13.5px;color:oklch(0.55 0.02 255);margin-top:3px;">Broker · caché · Celery</div>
+      </div>
+      <div style="position:absolute;top:0;right:70px;transform:translateX(50%);width:170px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="{{ nodeCircleStyle5 }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 5V19A9 3 0 0 1 3 19V5"></path><path d="M3 12A9 3 0 0 0 21 12"></path></svg></div>
+        <div style="{{ nodeLabelStyle5 }}">PostgreSQL 17</div>
+        <div style="font-size:13.5px;color:oklch(0.55 0.02 255);margin-top:3px;">Gestionado · 1 schema / empresa</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:1;display:grid;grid-template-columns:1.05fr 1fr 1fr;gap:18px;padding:14px 90px 40px;min-height:0;position:relative;">
+    <div style="display:flex;flex-direction:column;gap:14px;min-height:0;">
+      <div style="flex:1.5;background:oklch(0.19 0.025 255 / 0.7);border:1px solid oklch(1 0 0 / 0.08);border-radius:14px;padding:16px 20px;overflow:auto;min-height:0;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.55 0.02 255);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Logs de la petición</div>
+        <sc-for list="{{ visibleLogs }}" as="log" hint-placeholder-count="0">
+          <div style="display:flex;align-items:baseline;gap:12px;padding:5px 0;border-bottom:1px solid oklch(1 0 0 / 0.05);font-family:'IBM Plex Mono',monospace;font-size:14px;animation:fadeUp 0.35s ease;">
+            <span style="color:oklch(0.5 0.02 255);width:56px;flex-shrink:0;">{{ log.cumMs }}ms</span>
+            <span style="color:oklch(0.78 0.14 205);flex-shrink:0;">●</span>
+            <span style="color:oklch(0.85 0.01 255);white-space:nowrap;">{{ log.label }}</span>
+            <span style="color:oklch(0.55 0.02 255);">— {{ log.detail }}</span>
+          </div>
+        </sc-for>
+        <sc-if value="{{ isIdle }}" hint-placeholder-val="{{ false }}">
+          <div style="color:oklch(0.5 0.02 255);font-family:'IBM Plex Mono',monospace;font-size:14px;padding:8px 0;">Presiona “Simular Petición” para ver el recorrido en vivo.</div>
+        </sc-if>
+      </div>
+      <div style="flex:1;background:oklch(0.19 0.025 255 / 0.7);border:1px solid oklch(1 0 0 / 0.08);border-radius:14px;padding:16px 20px;min-height:0;overflow:auto;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.55 0.02 255);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;">Response Payload</div>
+        <sc-if value="{{ simDone }}" hint-placeholder-val="{{ false }}">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:oklch(0.75 0.15 150);line-height:1.6;">
+            <div>HTTP/1.1 200 OK</div>
+            <div style="color:oklch(0.7 0.02 255);">x-response-time: {{ totalMs }}ms · x-cache: HIT</div>
+            <div style="color:oklch(0.8 0.01 255);">{ "status": "ok", "empresa": "schema aislado" }</div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ isNotDone }}" hint-placeholder-val="{{ true }}">
+          <div style="color:oklch(0.45 0.02 255);font-family:'IBM Plex Mono',monospace;font-size:14px;">— esperando respuesta —</div>
+        </sc-if>
+      </div>
+    </div>
+    <sc-for list="{{ specCols }}" as="col" hint-placeholder-count="2">
+      <div style="display:flex;flex-direction:column;gap:14px;min-height:0;">
+        <sc-for list="{{ col.groups }}" as="g" hint-placeholder-count="3">
+          <div style="flex:1;background:oklch(0.2 0.028 255 / 0.55);border:1px solid oklch(1 0 0 / 0.1);border-radius:14px;padding:16px 22px;min-height:0;overflow:hidden;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:oklch(0.78 0.14 205);margin-bottom:10px;">{{ g.title }}</div>
+            <sc-for list="{{ g.rows }}" as="r" hint-placeholder-count="4">
+              <div style="display:flex;justify-content:space-between;gap:14px;padding:4.5px 0;font-size:14px;line-height:1.4;">
+                <span style="color:oklch(0.55 0.02 255);flex-shrink:0;">{{ r.k }}</span>
+                <span style="color:oklch(0.85 0.01 255);text-align:right;">{{ r.v }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section data-label="03 Arquitectura" data-speaker-notes="Basado en ARCHITECTURE.md: Nginx enruta apex a Next.js y API/subdominios a Django; django-tenants resuelve el schema por subdominio (SET search_path); el pipeline de middleware valida invitaciones, onboarding y membresía; Celery sincroniza tasas BCV a diario (16:00)." style="width:1920px;height:1080px;background:oklch(0.14 0.02 255);position:relative;overflow:hidden;font-family:'IBM Plex Sans',sans-serif;display:flex;flex-direction:column;">
+  <div style="position:absolute;inset:0;background:radial-gradient(1000px 500px at 50% -10%, oklch(0.3 0.06 205 / 0.3), transparent 60%);pointer-events:none;"></div>
+  <div style="position:relative;z-index:2;display:flex;align-items:center;gap:8px;padding:26px 90px 0;">
+    <span style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:oklch(0.97 0.005 255);letter-spacing:0.02em;margin-right:20px;">Galac</span>
+    <sc-for list="{{ tabsSlide2 }}" as="tab" hint-placeholder-count="5">
+      <div onClick="{{ tab.goTo }}" style="{{ tab.style }}">{{ tab.label }}</div>
+    </sc-for>
+    <div style="flex:1;"></div>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.5 0.02 255);">03 / 05</span>
+  </div>
+  <div style="padding:22px 90px 0;position:relative;">
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;color:oklch(0.97 0.005 255);margin:0 0 6px 0;">Arquitectura del aplicativo</h1>
+    <p style="font-size:16.5px;color:oklch(0.65 0.02 255);margin:0;">El recorrido completo de un request: del borde al schema aislado de cada empresa.</p>
+  </div>
+  <div style="flex:1;display:grid;grid-template-columns:1fr 26px 1.15fr 26px 1.2fr 26px 1.05fr;padding:24px 90px 0;min-height:0;position:relative;">
+    <div style="background:oklch(0.19 0.025 255 / 0.7);border:1px solid oklch(1 0 0 / 0.1);border-radius:16px;padding:18px 18px;display:flex;flex-direction:column;animation:layerPulse 4.8s ease infinite;animation-delay:0s;min-height:0;"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.55 0.02 255);letter-spacing:0.08em;text-transform:uppercase;">Capa 1</div><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:oklch(0.97 0.005 255);margin-top:3px;">Entrada y borde</div><div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:9px;padding:10px 0;">
+      <div style="background:oklch(1 0 0 / 0.05);border:1px solid oklch(1 0 0 / 0.08);border-radius:10px;padding:11px 14px;"><div style="font-size:14.5px;font-weight:600;color:oklch(0.92 0.01 255);">Internet — Usuarios</div><div style="font-size:12px;color:oklch(0.6 0.02 255);margin-top:3px;line-height:1.4;">Navegador · POS</div></div>
+      <div style="background:oklch(1 0 0 / 0.05);border:1px solid oklch(1 0 0 / 0.08);border-radius:10px;padding:11px 14px;"><div style="font-size:14.5px;font-weight:600;color:oklch(0.92 0.01 255);">Cloudflare</div><div style="font-size:12px;color:oklch(0.6 0.02 255);margin-top:3px;line-height:1.4;">DNS · WAF · TLS hacia el origen :80</div></div>
+      <div style="background:oklch(1 0 0 / 0.05);border:1px solid oklch(0.78 0.14 205 / 0.3);border-radius:10px;padding:11px 14px;"><div style="font-size:14.5px;font-weight:600;color:oklch(0.92 0.01 255);">Nginx — reverse proxy :80</div><div style="font-size:12px;color:oklch(0.6 0.02 255);margin-top:3px;line-height:1.4;">apex / → Next.js :3000<br></br>/api/ · /accounts/ · subdominios tenant → Django :8000<br></br>/healthz → 200 OK</div></div>
+    </div><div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:oklch(0.5 0.02 255);text-align:center;">routing por host y path</div></div>
+    <div style="display:flex;align-items:center;padding:0 4px;"><div style="height:3px;width:100%;background:repeating-linear-gradient(90deg, oklch(0.78 0.14 205) 0 10px, transparent 10px 18px);background-size:36px 3px;animation:wssFlow 0.8s linear infinite;border-radius:2px;"></div></div>
+    <div style="background:oklch(0.19 0.025 255 / 0.7);border:1px solid oklch(1 0 0 / 0.1);border-radius:16px;padding:18px 18px;display:flex;flex-direction:column;animation:layerPulse 4.8s ease infinite;animation-delay:1.2s;min-height:0;"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.55 0.02 255);letter-spacing:0.08em;text-transform:uppercase;">Capa 2</div><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:oklch(0.97 0.005 255);margin-top:3px;">Aplicación — Docker</div><div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:9px;padding:10px 0;">
+      <div style="background:oklch(1 0 0 / 0.05);border:1px solid oklch(1 0 0 / 0.08);border-radius:10px;padding:11px 14px;"><div style="font-size:14.5px;font-weight:600;color:oklch(0.92 0.01 255);">Next.js — galac-web</div><div style="font-size:12px;color:oklch(0.6 0.02 255);margin-top:3px;line-height:1.4;">App Router · UI nueva en el apex · consume la API de Django</div></div>
+      <div style="background:oklch(1 0 0 / 0.05);border:1px solid oklch(0.78 0.14 205 / 0.3);border-radius:10px;padding:11px 14px;"><div style="font-size:14.5px;font-weight:600;color:oklch(0.92 0.01 255);">Django + Gunicorn — galac-api</div><div style="font-size:12px;color:oklch(0.6 0.02 255);margin-top:3px;line-height:1.4;">API REST · templates + HTMX · django-tenants<br></br>Views/API → Forms/Serializers → <strong style="color:oklch(0.85 0.01 255);">Services</strong> → Models → Selectors</div></div>
+      <div style="background:oklch(1 0 0 / 0.05);border:1px solid oklch(1 0 0 / 0.08);border-radius:10px;padding:11px 14px;"><div style="font-size:14.5px;font-weight:600;color:oklch(0.92 0.01 255);">Celery worker + beat</div><div style="font-size:12px;color:oklch(0.6 0.02 255);margin-top:3px;line-height:1.4;">Tareas async · sync tasas BCV diaria (16:00 · reintentos c/1 h)</div></div>
+    </div><div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:oklch(0.5 0.02 255);text-align:center;">Docker Compose · imágenes por commit</div></div>
+    <div style="display:flex;align-items:center;padding:0 4px;"><div style="height:3px;width:100%;background:repeating-linear-gradient(90deg, oklch(0.78 0.14 205) 0 10px, transparent 10px 18px);background-size:36px 3px;animation:wssFlow 0.8s linear infinite;border-radius:2px;"></div></div>
+    <div style="background:oklch(0.19 0.025 255 / 0.7);border:1px solid oklch(1 0 0 / 0.1);border-radius:16px;padding:18px 18px;display:flex;flex-direction:column;animation:layerPulse 4.8s ease infinite;animation-delay:2.4s;min-height:0;"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.55 0.02 255);letter-spacing:0.08em;text-transform:uppercase;">Capa 3</div><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:oklch(0.97 0.005 255);margin-top:3px;">Pipeline del request</div><div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:9px;padding:10px 0;">
+      <div style="display:flex;gap:10px;align-items:baseline;background:oklch(1 0 0 / 0.05);border:1px solid oklch(1 0 0 / 0.08);border-radius:9px;padding:8px 12px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:oklch(0.78 0.14 205);flex-shrink:0;">1</span><div><span style="font-size:13px;font-weight:600;color:oklch(0.9 0.01 255);">TenantMainMiddleware</span> <span style="font-size:11.5px;color:oklch(0.6 0.02 255);">— subdominio → SET search_path = empresa, public</span></div></div>
+      <div style="display:flex;gap:10px;align-items:baseline;background:oklch(1 0 0 / 0.05);border:1px solid oklch(1 0 0 / 0.08);border-radius:9px;padding:8px 12px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:oklch(0.78 0.14 205);flex-shrink:0;">2</span><div><span style="font-size:13px;font-weight:600;color:oklch(0.9 0.01 255);">Security · WhiteNoise · Session · CSRF · Auth</span></div></div>
+      <div style="display:flex;gap:10px;align-items:baseline;background:oklch(1 0 0 / 0.05);border:1px solid oklch(1 0 0 / 0.08);border-radius:9px;padding:8px 12px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:oklch(0.78 0.14 205);flex-shrink:0;">3</span><div><span style="font-size:13px;font-weight:600;color:oklch(0.9 0.01 255);">allauth · simple_history · hijack</span> <span style="font-size:11.5px;color:oklch(0.6 0.02 255);">— login · auditoría · impersonar</span></div></div>
+      <div style="display:flex;gap:10px;align-items:baseline;background:oklch(1 0 0 / 0.05);border:1px solid oklch(1 0 0 / 0.08);border-radius:9px;padding:8px 12px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:oklch(0.78 0.14 205);flex-shrink:0;">4</span><div><span style="font-size:13px;font-weight:600;color:oklch(0.9 0.01 255);">InvitationMiddleware</span> <span style="font-size:11.5px;color:oklch(0.6 0.02 255);">— invitaciones por cookie firmada</span></div></div>
+      <div style="display:flex;gap:10px;align-items:baseline;background:oklch(1 0 0 / 0.05);border:1px solid oklch(1 0 0 / 0.08);border-radius:9px;padding:8px 12px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:oklch(0.78 0.14 205);flex-shrink:0;">5</span><div><span style="font-size:13px;font-weight:600;color:oklch(0.9 0.01 255);">OnboardingMiddleware</span> <span style="font-size:11.5px;color:oklch(0.6 0.02 255);">— sin empresa → /onboarding/</span></div></div>
+      <div style="display:flex;gap:10px;align-items:baseline;background:oklch(1 0 0 / 0.05);border:1px solid oklch(0.78 0.14 205 / 0.3);border-radius:9px;padding:8px 12px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:oklch(0.78 0.14 205);flex-shrink:0;">6</span><div><span style="font-size:13px;font-weight:600;color:oklch(0.9 0.01 255);">TenantAccessMiddleware</span> <span style="font-size:11.5px;color:oklch(0.6 0.02 255);">— ¿miembro del tenant? → 403 si no</span></div></div>
+      <div style="display:flex;gap:10px;align-items:baseline;background:oklch(1 0 0 / 0.05);border:1px solid oklch(1 0 0 / 0.08);border-radius:9px;padding:8px 12px;"><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:oklch(0.78 0.14 205);flex-shrink:0;">7</span><div><span style="font-size:13px;font-weight:600;color:oklch(0.9 0.01 255);">View + TenantPermissionMixin</span> <span style="font-size:11.5px;color:oklch(0.6 0.02 255);">— RBAC — permisos JSON por rol</span></div></div>
+    </div><div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:oklch(0.5 0.02 255);text-align:center;">el orden del middleware es crítico</div></div>
+    <div style="display:flex;align-items:center;padding:0 4px;"><div style="height:3px;width:100%;background:repeating-linear-gradient(90deg, oklch(0.78 0.14 205) 0 10px, transparent 10px 18px);background-size:36px 3px;animation:wssFlow 0.8s linear infinite;border-radius:2px;"></div></div>
+    <div style="background:oklch(0.19 0.025 255 / 0.7);border:1px solid oklch(1 0 0 / 0.1);border-radius:16px;padding:18px 18px;display:flex;flex-direction:column;animation:layerPulse 4.8s ease infinite;animation-delay:3.6s;min-height:0;"><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:oklch(0.55 0.02 255);letter-spacing:0.08em;text-transform:uppercase;">Capa 4</div><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:oklch(0.97 0.005 255);margin-top:3px;">Datos y servicios</div><div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:9px;padding:10px 0;">
+      <div style="background:oklch(1 0 0 / 0.05);border:1px solid oklch(0.78 0.14 205 / 0.3);border-radius:10px;padding:11px 14px;"><div style="font-size:14.5px;font-weight:600;color:oklch(0.92 0.01 255);">PostgreSQL 17 — django-tenants</div><div style="font-size:12px;color:oklch(0.6 0.02 255);margin-top:3px;line-height:1.4;">Schema <strong style="color:oklch(0.85 0.01 255);">public</strong>: usuarios · empresas · roles · monedas y tasas<br></br>1 schema por empresa: inventario · dashboard · auditoría</div></div>
+      <div style="background:oklch(1 0 0 / 0.05);border:1px solid oklch(1 0 0 / 0.08);border-radius:10px;padding:11px 14px;"><div style="font-size:14.5px;font-weight:600;color:oklch(0.92 0.01 255);">Redis</div><div style="font-size:12px;color:oklch(0.6 0.02 255);margin-top:3px;line-height:1.4;">Broker de Celery · caché · cola del relay fiscal</div></div>
+      <div style="background:oklch(1 0 0 / 0.05);border:1px solid oklch(1 0 0 / 0.08);border-radius:10px;padding:11px 14px;"><div style="font-size:14.5px;font-weight:600;color:oklch(0.92 0.01 255);">Cloudflare R2 + WhiteNoise</div><div style="font-size:12px;color:oklch(0.6 0.02 255);margin-top:3px;line-height:1.4;">Media vía django-storages (S3) · estáticos comprimidos</div></div>
+      <div style="background:oklch(1 0 0 / 0.05);border:1px solid oklch(1 0 0 / 0.08);border-radius:10px;padding:11px 14px;"><div style="font-size:14.5px;font-weight:600;color:oklch(0.92 0.01 255);">Externos</div><div style="font-size:12px;color:oklch(0.6 0.02 255);margin-top:3px;line-height:1.4;">BCV · SendGrid · Sentry · Google OAuth / MFA · Analytics</div></div>
+    </div><div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:oklch(0.5 0.02 255);text-align:center;">gestionados · fuera de Docker</div></div>
+  </div>
+  <div style="padding:22px 90px 40px;position:relative;">
+    <div style="background:oklch(0.78 0.14 205 / 0.08);border:1px solid oklch(0.78 0.14 205 / 0.25);border-radius:14px;padding:16px 26px;font-size:15px;color:oklch(0.8 0.02 255);line-height:1.55;"><strong style="color:oklch(0.97 0.005 255);">Multi-tenancy por schema:</strong> el request llega por el subdominio de la empresa, django-tenants ejecuta <span style="font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:oklch(0.78 0.14 205);">SET search_path = empresa, public</span> y todos los queries del ORM quedan aislados en el schema de esa empresa — los módulos comparten código, nunca datos.</div>
+  </div>
+</section>
+
+<section data-label="04 Módulos" data-speaker-notes="Flujo continuo desde la venta hasta el libro fiscal. Clic en cada módulo para el detalle. Cerrar con el flujo crítico de emisión y las integraciones." style="width:1920px;height:1080px;background:oklch(0.14 0.02 255);position:relative;overflow:hidden;font-family:'IBM Plex Sans',sans-serif;display:flex;flex-direction:column;">
+  <div style="position:absolute;inset:0;background:radial-gradient(1000px 500px at 90% 110%, oklch(0.3 0.06 205 / 0.28), transparent 60%);pointer-events:none;"></div>
+  <div style="position:relative;z-index:2;display:flex;align-items:center;gap:8px;padding:26px 90px 0;">
+    <span style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:oklch(0.97 0.005 255);letter-spacing:0.02em;margin-right:20px;">Galac</span>
+    <sc-for list="{{ tabsSlide3 }}" as="tab" hint-placeholder-count="4">
+      <div onClick="{{ tab.goTo }}" style="{{ tab.style }}">{{ tab.label }}</div>
+    </sc-for>
+    <div style="flex:1;"></div>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.5 0.02 255);">04 / 05</span>
+  </div>
+
+  <div style="padding:24px 90px 0;position:relative;">
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;color:oklch(0.97 0.005 255);margin:0 0 6px 0;">Funcionalidades principales y módulos</h1>
+    <p style="font-size:17px;color:oklch(0.65 0.02 255);margin:0;">Los módulos disponibles hoy en la plataforma — de la venta al libro fiscal. Haz clic en una tarjeta para ver el detalle.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:26px 90px 0;position:relative;align-items:start;">
+    <sc-for list="{{ modules }}" as="mod" hint-placeholder-count="8">
+      <div onClick="{{ mod.toggle }}" style="{{ mod.cardStyle }}">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div style="{{ mod.iconWrapStyle }}" dangerouslySetInnerHTML="{{ mod.iconHtml }}"></div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.02 255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="{{ mod.chevronStyle }}"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:16.5px;font-weight:600;color:oklch(0.97 0.005 255);margin-top:10px;line-height:1.2;">{{ mod.name }}</div>
+        <div style="font-size:13px;color:oklch(0.62 0.02 255);margin-top:6px;line-height:1.45;">{{ mod.summary }}</div>
+        <sc-if value="{{ mod.expanded }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:12px;padding-top:12px;border-top:1px solid oklch(1 0 0 / 0.1);animation:fadeUp 0.25s ease;">
+            <sc-for list="{{ mod.details }}" as="d" hint-placeholder-count="3">
+              <div style="display:flex;gap:8px;font-size:12.5px;color:oklch(0.72 0.02 255);padding:3px 0;line-height:1.4;">
+                <span style="color:oklch(0.78 0.14 205);flex-shrink:0;">→</span><span>{{ d }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="padding:24px 90px 0;position:relative;margin-top:auto;">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:oklch(0.55 0.02 255);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;">Flujo crítico — emisión de un documento fiscal</div>
+    <div style="display:flex;align-items:stretch;gap:12px;">
+      <sc-for list="{{ flowSteps }}" as="fs" hint-placeholder-count="5">
+        <div style="flex:1;display:flex;align-items:center;gap:12px;">
+          <div style="flex:1;background:oklch(0.2 0.028 255 / 0.55);border:1px solid oklch(1 0 0 / 0.1);border-radius:12px;padding:17px 19px;height:100%;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:oklch(0.78 0.14 205);">{{ fs.num }}</span>
+            <div style="font-size:15px;color:oklch(0.78 0.02 255);margin-top:7px;line-height:1.45;">{{ fs.text }}</div>
+          </div>
+          <sc-if value="{{ fs.hasArrow }}" hint-placeholder-val="{{ true }}">
+            <span style="color:oklch(0.5 0.02 255);font-size:16px;flex-shrink:0;">→</span>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="padding:26px 90px 46px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:relative;">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:oklch(0.55 0.02 255);letter-spacing:0.08em;text-transform:uppercase;margin-right:6px;">Integraciones</span>
+    <sc-for list="{{ integrations }}" as="ig" hint-placeholder-count="6">
+      <span style="font-size:15px;color:oklch(0.78 0.02 255);background:oklch(1 0 0 / 0.06);border:1px solid oklch(1 0 0 / 0.1);border-radius:999px;padding:10px 19px;"><strong style="color:oklch(0.97 0.005 255);font-weight:600;">{{ ig.name }}</strong> — {{ ig.what }}</span>
+    </sc-for>
+  </div>
+</section>
+
+<section data-label="05 Despliegue" data-speaker-notes="Mapa físico: qué corre en el servidor, qué es servicio gestionado y qué corre en el PC del cliente. La conexión wss la inicia siempre el agente — nunca el servidor." style="width:1920px;height:1080px;background:oklch(0.14 0.02 255);position:relative;overflow:hidden;font-family:'IBM Plex Sans',sans-serif;display:flex;flex-direction:column;">
+  <div style="position:absolute;inset:0;background:radial-gradient(1000px 500px at 10% -10%, oklch(0.3 0.06 205 / 0.3), transparent 60%);pointer-events:none;"></div>
+  <div style="position:relative;z-index:2;display:flex;align-items:center;gap:8px;padding:26px 90px 0;">
+    <span style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:oklch(0.97 0.005 255);letter-spacing:0.02em;margin-right:20px;">Galac</span>
+    <sc-for list="{{ tabsSlide4 }}" as="tab" hint-placeholder-count="4">
+      <div onClick="{{ tab.goTo }}" style="{{ tab.style }}">{{ tab.label }}</div>
+    </sc-for>
+    <div style="flex:1;"></div>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.5 0.02 255);">05 / 05</span>
+  </div>
+
+  <div style="padding:24px 90px 0;position:relative;">
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;color:oklch(0.97 0.005 255);margin:0 0 6px 0;">Dónde vive el aplicativo</h1>
+    <p style="font-size:17px;color:oklch(0.65 0.02 255);margin:0;">Un mapa físico del despliegue: qué corre en el servidor, qué es un servicio externo gestionado y qué corre en el equipo del cliente.</p>
+  </div>
+
+  <div style="flex:1;display:grid;grid-template-columns:1.25fr 1fr;gap:34px;padding:32px 90px 52px;min-height:0;position:relative;">
+    <div style="display:flex;flex-direction:column;gap:0;min-height:0;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:oklch(0.55 0.02 255);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;">Lado servidor — solicitud de un usuario</div>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div style="flex:1;background:oklch(0.2 0.028 255 / 0.55);border:1px solid oklch(1 0 0 / 0.1);border-radius:12px;padding:17px 22px;display:flex;align-items:center;gap:12px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.78 0.14 205)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+          <div><span style="font-family:'Space Grotesk',sans-serif;font-size:17.5px;font-weight:600;color:oklch(0.97 0.005 255);">Usuarios</span> <span style="font-size:15px;color:oklch(0.6 0.02 255);">— Navegador / POS</span></div>
+        </div>
+        <div style="flex:1;background:oklch(0.2 0.028 255 / 0.55);border:1px solid oklch(1 0 0 / 0.1);border-radius:12px;padding:17px 22px;display:flex;align-items:center;gap:12px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.78 0.14 205)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"></path></svg>
+          <div><span style="font-family:'Space Grotesk',sans-serif;font-size:17.5px;font-weight:600;color:oklch(0.97 0.005 255);">Borde — Cloudflare</span> <span style="font-size:15px;color:oklch(0.6 0.02 255);">— DNS · WAF · TLS</span></div>
+        </div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:oklch(0.5 0.02 255);padding:11px 0 11px 24px;">↓ HTTP :80 al origen</div>
+      <div style="background:oklch(0.19 0.025 255 / 0.7);border:1px solid oklch(0.78 0.14 205 / 0.3);border-radius:14px;padding:22px 26px;flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:17.5px;font-weight:600;color:oklch(0.97 0.005 255);margin-bottom:14px;">Servidor — Droplet Ubuntu 24.04 <span style="font-size:12.5px;font-weight:400;color:oklch(0.6 0.02 255);">(Docker · 2 vCPU / 2 GB / 50 GB SSD)</span></div>
+        <div style="display:flex;flex-wrap:wrap;gap:9px;">
+          <sc-for list="{{ serverChips }}" as="c" hint-placeholder-count="7">
+            <span style="font-size:15px;font-family:'IBM Plex Mono',monospace;color:oklch(0.85 0.01 255);background:oklch(1 0 0 / 0.07);border:1px solid oklch(1 0 0 / 0.1);border-radius:9px;padding:10px 16px;">{{ c }}</span>
+          </sc-for>
+        </div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:oklch(0.5 0.02 255);padding:11px 0 11px 24px;">↓ conexión de red a servicios externos</div>
+      <div style="background:oklch(0.19 0.025 255 / 0.7);border:1px solid oklch(1 0 0 / 0.1);border-radius:14px;padding:22px 26px;flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:17.5px;font-weight:600;color:oklch(0.97 0.005 255);margin-bottom:14px;">Servicios gestionados — fuera del servidor</div>
+        <div style="display:flex;flex-wrap:wrap;gap:9px;">
+          <sc-for list="{{ managedChips }}" as="c" hint-placeholder-count="4">
+            <span style="font-size:15px;font-family:'IBM Plex Mono',monospace;color:oklch(0.85 0.01 255);background:oklch(1 0 0 / 0.07);border:1px solid oklch(1 0 0 / 0.1);border-radius:9px;padding:10px 16px;">{{ c }}</span>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;gap:36px;padding-top:18px;border-top:1px solid oklch(1 0 0 / 0.08);margin-top:18px;">
+        <div style="flex:1;"><div style="font-size:15px;color:oklch(0.62 0.02 255);line-height:1.55;"><strong style="color:oklch(0.9 0.01 255);">CI/CD</strong> — Lint + tests (3 lotes) + migraciones; despliegue SSH automático tras CI verde. Imágenes versionadas por commit en registry privado; reversión re-desplegando el tag anterior.</div></div>
+        <div style="flex:1;"><div style="font-size:15px;color:oklch(0.62 0.02 255);line-height:1.55;"><strong style="color:oklch(0.9 0.01 255);">Equipo requerido</strong> — 1 perfil DevOps/backend, no dedicado full-time. Backups y failover delegados al proveedor de PostgreSQL gestionado.</div></div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;min-height:0;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:oklch(0.55 0.02 255);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:14px;">Lado cliente — impresora fiscal</div>
+      <div style="background:oklch(0.19 0.025 255 / 0.7);border:1px solid oklch(1 0 0 / 0.1);border-radius:14px;padding:22px 26px;flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:17.5px;font-weight:600;color:oklch(0.97 0.005 255);margin-bottom:14px;">PC del cliente (comercio)</div>
+        <div style="display:flex;flex-direction:column;gap:9px;">
+          <div style="display:flex;align-items:center;gap:12px;background:oklch(1 0 0 / 0.05);border:1px solid oklch(1 0 0 / 0.08);border-radius:10px;padding:14px 18px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.78 0.14 205)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"></rect><path d="M8 21h8"></path><path d="M12 18v3"></path></svg>
+            <span style="font-size:15.5px;color:oklch(0.85 0.01 255);">Navegador — POS</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:oklch(1 0 0 / 0.05);border:1px solid oklch(0.78 0.14 205 / 0.35);border-radius:10px;padding:14px 18px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.78 0.14 205)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span style="font-size:15.5px;color:oklch(0.85 0.01 255);">Agente fiscal (.exe) — token local</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:oklch(1 0 0 / 0.05);border:1px solid oklch(1 0 0 / 0.08);border-radius:10px;padding:14px 18px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.78 0.14 205)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><rect x="6" y="14" width="12" height="8"></rect><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path></svg>
+            <span style="font-size:15.5px;color:oklch(0.85 0.01 255);">Impresora fiscal — COM/DLL</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:20px 4px;">
+        <div style="flex:1;height:3px;border-radius:2px;background:repeating-linear-gradient(90deg, oklch(0.78 0.14 205) 0 14px, transparent 14px 22px);background-size:44px 3px;animation:wssFlow 0.9s linear infinite;"></div>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:oklch(0.78 0.14 205);flex-shrink:0;">wss:// saliente · persistente →</span>
+      </div>
+      <div style="background:oklch(0.19 0.025 255 / 0.7);border:1px solid oklch(0.78 0.14 205 / 0.3);border-radius:14px;padding:22px 26px;flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:17.5px;font-weight:600;color:oklch(0.97 0.005 255);">Destino: Relay ASGI</div>
+        <div style="font-size:15px;color:oklch(0.62 0.02 255);margin-top:8px;line-height:1.55;">Canal WebSocket (uvicorn) dentro del servidor · cola Redis</div>
+      </div>
+      <div style="background:oklch(0.78 0.14 205 / 0.08);border:1px solid oklch(0.78 0.14 205 / 0.25);border-radius:14px;padding:22px 26px;margin-top:20px;">
+        <div style="font-size:15.5px;color:oklch(0.8 0.02 255);line-height:1.6;"><strong style="color:oklch(0.97 0.005 255);">La conexión la inicia siempre el agente instalado en el comercio, nunca el servidor.</strong> Esto evita abrir puertos o depender de IP pública en el PC del cliente: la impresora fiscal es alcanzable desde la nube sin exponer la red del comercio a internet.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1920, &quot;height&quot;: 1080}, &quot;accentColor&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;oklch(0.78 0.14 205)&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;oklch(0.78 0.14 205)&quot;, &quot;oklch(0.75 0.15 250)&quot;, &quot;oklch(0.78 0.13 165)&quot;, &quot;oklch(0.75 0.15 25)&quot;], &quot;section&quot;: &quot;Tema&quot;}, &quot;simSpeed&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;Normal&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;Lenta&quot;, &quot;Normal&quot;, &quot;Rápida&quot;], &quot;section&quot;: &quot;Simulación&quot;}}">
+const STAGES = [
+  { key: 'client', label: 'Usuarios', detail: 'Solicitud HTTPS desde navegador / POS', ms: 0 },
+  { key: 'cloudflare', label: 'Cloudflare', detail: 'DNS · filtrado WAF · terminación TLS', ms: 18 },
+  { key: 'nginx', label: 'Nginx :80', detail: 'Reverse proxy — enruta host + path', ms: 5 },
+  { key: 'app', label: 'Django + Gunicorn', detail: 'galac-api procesa la lógica de negocio', ms: 45 },
+  { key: 'redis', label: 'Redis', detail: 'Broker / caché — tareas async a Celery', ms: 4 },
+  { key: 'db', label: 'PostgreSQL 17', detail: 'Consulta al schema aislado de la empresa', ms: 30 },
+];
+
+const MODULES_META = [
+  { key: 'dashboard', name: 'Dashboard', summary: 'Panel de indicadores operativos por empresa.',
+    details: ['Indicadores operativos en tiempo real', 'Vista por empresa'],
+    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg>' },
+  { key: 'ventas', name: 'Ventas', summary: 'Documentos fiscales de venta con impuestos automáticos.',
+    details: ['Factura · NC · ND · guía de despacho · cotización', 'IVA · IGTF · ISLR calculados automáticamente', 'Doble moneda con tasa BCV'],
+    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>' },
+  { key: 'pos', name: 'Punto de Venta', summary: 'Caja rápida para la venta de mostrador.',
+    details: ['Cobro rápido en mostrador', 'Impresión fiscal directa o vía agente en la nube'],
+    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path></svg>' },
+  { key: 'clientes', name: 'Clientes', summary: 'Directorio con datos fiscales e historial.',
+    details: ['Datos fiscales por cliente', 'Historial de documentos emitidos'],
+    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"></circle><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path></svg>' },
+  { key: 'inventario', name: 'Inventario', summary: 'Ítems, almacenes y stock con movimientos auditados.',
+    details: ['Múltiples almacenes con stock por almacén', 'Entradas / salidas / consumos con reversas auditadas', 'Precios multimoneda'],
+    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>' },
+  { key: 'compras', name: 'Compras', summary: 'Órdenes y recepción con actualización automática.',
+    details: ['Órdenes de compra', 'Recepción parcial o total de mercancía', 'Actualiza inventario y libro de compras automáticamente'],
+    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>' },
+  { key: 'vendedores', name: 'Vendedores', summary: 'Jerarquías, rutas y comisiones de venta.',
+    details: ['Jerarquía de hasta 5 niveles', 'Rutas de venta', 'Reglas de comisión por monto / categoría / ruta, causadas al facturar'],
+    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"></circle><path d="M20 21a8 8 0 0 0-16 0"></path></svg>' },
+  { key: 'equipos', name: 'Equipos', summary: 'Usuarios, roles y permisos por empresa.',
+    details: ['Roles y permisos granulares por empresa', 'Invitaciones de usuarios', 'Administración multiempresa'],
+    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"></circle><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"></path><path d="M19 8v6"></path><path d="M22 11h-6"></path></svg>' },
+  { key: 'reportes', name: 'Reportes', summary: 'Libros fiscales y reportes operativos.',
+    details: ['Libros de ventas y compras generados solos', 'Reportes operativos exportables'],
+    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>' },
+  { key: 'fiscal', name: 'Facturación fiscal (núcleo)', summary: 'Numeración legal conforme a la Providencia SENIAT.',
+    details: ['Configuración fiscal por sucursal y punto de venta', 'Numeración legal de control y factura', 'Forma libre sobre talonarios pre-impresos, posicionamiento por punto de venta'],
+    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M9 15h6"></path><path d="M9 11h2"></path></svg>' },
+  { key: 'impresion', name: 'Impresión fiscal en la nube', summary: 'Agente local + relay: la impresora física sin exponer la red.',
+    details: ['Conexión wss:// saliente iniciada por el agente', 'Soporta Bematech, PNP/Epson, ELEPOS y The Factory HKA'],
+    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><rect x="6" y="14" width="12" height="8"></rect><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path></svg>' },
+  { key: 'config', name: 'Configuración · Admin', summary: 'Parámetros fiscales, monedas y consola de administración.',
+    details: ['Configuración fiscal y de empresa', 'Monedas y tasas de cambio', 'Consola admin del sistema'],
+    icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>' },
+];
+
+class Component extends DCLogic {
+  state = { simStage: -1, phase: 'idle', expanded: null, timers: [] };
+
+  clearTimers() { this.state.timers.forEach(t => clearTimeout(t)); }
+  componentWillUnmount() { this.clearTimers(); }
+
+  runSimulation() {
+    if (this.state.phase === 'forward' || this.state.phase === 'return') return;
+    this.clearTimers();
+    const step = this.props.simSpeed === 'Rápida' ? 320 : this.props.simSpeed === 'Lenta' ? 900 : 550;
+    const timers = [];
+    this.setState({ simStage: -1, phase: 'forward' });
+    STAGES.forEach((s, i) => {
+      timers.push(setTimeout(() => this.setState({ simStage: i }), step * (i + 1)));
+    });
+    const returnAt = step * (STAGES.length + 1);
+    timers.push(setTimeout(() => this.setState({ phase: 'return' }), returnAt));
+    timers.push(setTimeout(() => this.setState({ phase: 'done' }), returnAt + step));
+    this.state.timers = timers;
+  }
+
+  resetSimulation() {
+    this.clearTimers();
+    this.setState({ simStage: -1, phase: 'idle' });
+  }
+
+  toggleModule(key) {
+    this.setState(s => ({ expanded: s.expanded === key ? null : key }));
+  }
+
+  goToSlide(n) {
+    const el = document.querySelector('deck-stage');
+    if (el && el.goTo) el.goTo(n);
+  }
+
+  renderVals() {
+    const accent = this.props.accentColor || 'oklch(0.78 0.14 205)';
+    const { simStage, phase, expanded } = this.state;
+    const total = STAGES.length - 1;
+    const isRunning = phase === 'forward' || phase === 'return';
+    const isDone = phase === 'done';
+    const isIdle = phase === 'idle';
+
+    let dotPct;
+    if (phase === 'forward') dotPct = simStage < 0 ? 0 : (simStage / total) * 100;
+    else dotPct = 0;
+    const dotLeftPercent = `calc(70px + ${dotPct.toFixed(2)}*(100% - 140px)/${total})`;
+
+    let cum = 0;
+    const visibleLogs = (phase === 'idle') ? [] : STAGES.slice(0, simStage + 1).map(s => {
+      cum += s.ms;
+      return { label: s.label, detail: s.detail, cumMs: cum };
+    });
+    const totalMs = STAGES.reduce((a, s) => a + s.ms, 0) + 22;
+
+    const nodeStyles = {};
+    STAGES.forEach((s, i) => {
+      const passed = phase !== 'idle' && (simStage >= i || isDone || phase === 'return');
+      const active = phase === 'forward' && simStage === i;
+      nodeStyles['nodeCircleStyle' + i] = `width:52px;height:52px;border-radius:15px;display:flex;align-items:center;justify-content:center;transition:all 0.35s ease;` +
+        (passed || isDone
+          ? `background:${accent};color:oklch(0.14 0.02 255);box-shadow:0 0 22px 2px ${accent.replace(')', ' / 0.4)')};`
+          : `background:oklch(0.22 0.03 255 / 0.8);color:oklch(0.55 0.02 255);border:1px solid oklch(1 0 0 / 0.1);`) +
+        (active ? `transform:scale(1.12);` : '');
+      nodeStyles['nodeLabelStyle' + i] = `font-size:13.5px;font-weight:600;margin-top:10px;color:${(passed || isDone) ? 'oklch(0.97 0.005 255)' : 'oklch(0.6 0.02 255)'};transition:color 0.3s ease;`;
+    });
+
+    const progressLineWidth = phase === 'forward' ? `${(simStage < 0 ? 0 : simStage / total) * 100}%` : '0%';
+
+    const tabLabels = ['Propósito', 'Infraestructura', 'Arquitectura', 'Módulos', 'Despliegue'];
+    const tabsFor = (activeIdx) => tabLabels.map((t, i) => ({
+      label: t,
+      goTo: () => this.goToSlide(i),
+      style: `padding:8px 17px;border-radius:999px;font-size:13.5px;font-weight:600;cursor:pointer;transition:all 0.2s ease;` +
+        (i === activeIdx
+          ? `background:${accent};color:oklch(0.14 0.02 255);border:none;`
+          : `background:transparent;color:oklch(0.6 0.02 255);border:1px solid oklch(1 0 0 / 0.12);`)
+    }));
+
+    const modules = MODULES_META.map(m => {
+      const isOpen = expanded === m.key;
+      return {
+        name: m.name, summary: m.summary, details: m.details, expanded: isOpen,
+        toggle: () => this.toggleModule(m.key),
+        iconHtml: { __html: m.icon },
+        iconWrapStyle: `width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:${isOpen ? accent : 'oklch(0.24 0.03 255)'};color:${isOpen ? 'oklch(0.14 0.02 255)' : accent};transition:all 0.25s ease;`,
+        chevronStyle: `transition:transform 0.25s ease;transform:rotate(${isOpen ? 180 : 0}deg);`,
+        cardStyle: `background:oklch(0.2 0.028 255 / 0.55);backdrop-filter:blur(12px);border:1px solid ${isOpen ? accent.replace(')', ' / 0.5)') : 'oklch(1 0 0 / 0.1)'};border-radius:14px;padding:16px 18px;cursor:pointer;transition:all 0.25s ease;`
+      };
+    });
+
+    const benefits = [
+      { name: 'Cumplimiento por diseño', text: 'Numeración de control y factura conforme a la Providencia SENIAT, generada centralizadamente; no depende de cada punto de venta.' },
+      { name: 'Aislamiento por empresa', text: 'Cada tenant tiene su propio esquema de base de datos: los datos de un cliente nunca conviven con los de otro.' },
+      { name: 'Menor costo de soporte', text: 'Sin puente HTTP local que mantener por cliente; el agente en la nube reduce visitas técnicas e incidentes de red.' },
+      { name: 'Datos financieros consistentes', text: 'Tasas oficiales BCV sincronizadas a diario; elimina el error manual en facturación multimoneda.' },
+      { name: 'Trazabilidad total', text: 'Cada cambio en inventario, precios y documentos queda auditado: quién, cuándo y qué cambió.' },
+    ];
+
+    const specCols = [
+      { groups: [
+        { title: 'Alojamiento', rows: [
+          { k: 'Modalidad', v: 'Cloud (VM Ubuntu 24.04)' },
+          { k: 'Borde', v: 'Cloudflare — DNS · WAF · TLS' },
+          { k: 'Dimensionamiento', v: '2 vCPU / 2 GB / 50 GB SSD' },
+          { k: 'Proveedores', v: 'DO · AWS · Hetzner · GCP · Azure' } ] },
+        { title: 'Cómputo y contenedores', rows: [
+          { k: 'Orquestación', v: 'Docker + Docker Compose' },
+          { k: 'Backend', v: 'Django + Gunicorn (galac-api)' },
+          { k: 'Frontend', v: 'Next.js standalone (galac-web)' },
+          { k: 'Async', v: 'Celery worker + Celery Beat' },
+          { k: 'Relay fiscal', v: 'ASGI (uvicorn) junto a WSGI' } ] },
+        { title: 'Base de datos y almacenamiento', rows: [
+          { k: 'Motor', v: 'PostgreSQL 17' },
+          { k: 'Aislamiento', v: '1 schema por empresa (no por fila)' },
+          { k: 'Servicio en prod.', v: 'Gestionado externo (no en Docker)' },
+          { k: 'Respaldo / HA', v: 'Backups y failover del proveedor' },
+          { k: 'Archivos / media', v: 'Cloudflare R2 (S3-compatible)' } ] } ] },
+      { groups: [
+        { title: 'Red y comunicaciones', rows: [
+          { k: 'Dominio', v: 'Wildcard *.dominio — 1 subdominio/empresa' },
+          { k: 'Puertos', v: '80 / 443 · SSH 22 restringido' },
+          { k: 'Reverse proxy', v: 'Nginx — enruta host + path' },
+          { k: 'Agente fiscal', v: 'wss:// saliente, sin puertos en el cliente' } ] },
+        { title: 'Seguridad', rows: [
+          { k: 'Acceso SSH', v: 'Solo llave · usuario sin root' },
+          { k: 'TLS', v: 'Cloudflare o Let\u2019s Encrypt' },
+          { k: 'Firewall', v: 'UFW — 22/80/443 únicamente' },
+          { k: 'Secretos', v: 'GitHub Secrets, fuera del repo' },
+          { k: 'Auditoría', v: 'Historial automático por tabla' } ] },
+        { title: 'Despliegue y mantenimiento', rows: [
+          { k: 'CI', v: 'Lint + tests (3 lotes) + migraciones' },
+          { k: 'CD', v: 'SSH automático tras CI verde' },
+          { k: 'Imágenes', v: 'Registry privado, por commit' },
+          { k: 'Reversión', v: 'Re-desplegar tag anterior' },
+          { k: 'Equipo', v: '1 perfil DevOps, no full-time' } ] } ] },
+    ];
+
+    const flowSteps = [
+      { num: '01', text: 'El cajero confirma la venta en el punto de venta.', hasArrow: true },
+      { num: '02', text: 'El sistema calcula totales, impuestos y asigna la numeración legal.', hasArrow: true },
+      { num: '03', text: 'Despacha el documento a la impresora fiscal (directa o vía agente).', hasArrow: true },
+      { num: '04', text: 'Recibe el número fiscal y marca el documento como emitido.', hasArrow: true },
+      { num: '05', text: 'Actualiza inventario, comisiones y libro de ventas.', hasArrow: false },
+    ];
+
+    const integrations = [
+      { name: 'BCV', what: 'tasas oficiales diarias' },
+      { name: 'SendGrid / Mailjet', what: 'correo transaccional' },
+      { name: 'Google OAuth', what: 'inicio de sesión' },
+      { name: 'Cloudflare R2', what: 'archivos y logos' },
+      { name: 'Sentry', what: 'monitoreo de errores' },
+      { name: 'Google Analytics', what: 'uso del producto' },
+    ];
+
+    const serverChips = ['Nginx :80 — reverse proxy', 'Next.js — galac-web', 'Django + Gunicorn — galac-api', 'ASGI uvicorn — relay fiscal (/ws/)', 'Celery worker', 'Celery beat', 'Redis — broker / caché'];
+    const managedChips = ['PostgreSQL gestionado — 1 schema/empresa', 'Cloudflare R2 — archivos / media', 'Sentry — monitoreo de errores', 'SendGrid / Mailjet — correo'];
+
+    return {
+      tabsSlide0: tabsFor(0), tabsSlide1: tabsFor(1), tabsSlide2: tabsFor(2), tabsSlide3: tabsFor(3), tabsSlide4: tabsFor(4),
+      runSimulation: () => this.runSimulation(),
+      resetSimulation: () => this.resetSimulation(),
+      simRunning: isRunning,
+      playButtonLabel: isRunning ? 'Simulando…' : 'Simular Petición',
+      playButtonStyle: `display:flex;align-items:center;gap:9px;background:${accent};color:oklch(0.14 0.02 255);font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:700;padding:12px 22px;border-radius:12px;border:none;cursor:${isRunning ? 'default' : 'pointer'};opacity:${isRunning ? 0.7 : 1};flex-shrink:0;`,
+      responseBadgeStyle: `display:flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;font-size:13px;font-weight:600;transition:all 0.3s ease;flex-shrink:0;` +
+        (isDone ? `background:oklch(0.75 0.15 150 / 0.18);color:oklch(0.75 0.15 150);` : `background:oklch(1 0 0 / 0.06);color:oklch(0.5 0.02 255);`),
+      responseBadgeText: isDone ? `200 OK · ${totalMs}ms` : 'En espera',
+      dotLeftPercent, progressLineWidth,
+      dotStyle: `width:15px;height:15px;border-radius:50%;background:${accent};animation:${isRunning ? 'pulseDot 0.9s infinite' : 'none'};opacity:${phase === 'idle' ? 0.3 : 1};transition:opacity 0.3s ease;`,
+      ...nodeStyles,
+      visibleLogs, isIdle, simDone: isDone, isNotDone: !isDone, totalMs,
+      modules, benefits, specCols, flowSteps, integrations, serverChips, managedChips,
+      archModules: ['Facturación fiscal', 'Punto de venta', 'Ventas', 'Inventario', 'Compras', 'Clientes', 'Vendedores', 'Comisiones', 'Equipos', 'Reportes', 'Configuración'],
+    };
+  }
+}
+</script>
+</body>
+</html>

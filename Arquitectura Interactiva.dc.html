@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"></link>
+  <style>
+    body { margin: 0; background: oklch(0.14 0.02 255); }
+    ::selection { background: oklch(0.78 0.14 205 / 0.35); }
+    @keyframes pulseDot { 0%,100% { box-shadow: 0 0 0 0 oklch(0.78 0.14 205 / 0.55); } 50% { box-shadow: 0 0 0 10px oklch(0.78 0.14 205 / 0); } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+<section data-label="Propósito" data-speaker-notes="Contexto de negocio: qué resuelve la plataforma y por qué importa a Gerencia General." style="width:1920px;height:1080px;background:oklch(0.14 0.02 255);position:relative;overflow:hidden;font-family:'IBM Plex Sans',sans-serif;display:flex;flex-direction:column;">
+  <div style="position:absolute;inset:0;background:radial-gradient(1100px 600px at 85% -10%, oklch(0.3 0.06 205 / 0.35), transparent 60%);pointer-events:none;"></div>
+
+  <div style="position:relative;z-index:2;display:flex;gap:8px;padding:28px 90px 0;font-family:'IBM Plex Sans',sans-serif;">
+    <sc-for list="{{ tabsSlide0 }}" as="tab" hint-placeholder-count="4">
+      <div onClick="{{ tab.goTo }}" style="{{ tab.style }}">{{ tab.label }}</div>
+    </sc-for>
+  </div>
+
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 120px;position:relative;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
+      <div style="width:8px;height:8px;border-radius:50%;background:oklch(0.78 0.14 205);"></div>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:0.12em;color:oklch(0.78 0.14 205);text-transform:uppercase;">Presentación técnica · Gerencia General</span>
+    </div>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:76px;font-weight:700;color:oklch(0.97 0.005 255);margin:0 0 20px 0;line-height:1.05;max-width:1300px;">Propósito y Valor<br></br>de la Plataforma</h1>
+    <p style="font-size:24px;line-height:1.6;color:oklch(0.75 0.02 255);max-width:920px;margin:0 0 56px 0;">
+      Una arquitectura moderna, segura y escalable que conecta al cliente con la infraestructura de backend en milisegundos —
+      diseñada para soportar el crecimiento del negocio sin fricción operativa.
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1560px;">
+      <div style="background:oklch(0.24 0.03 255 / 0.55);backdrop-filter:blur(14px);border:1px solid oklch(1 0 0 / 0.1);border-radius:18px;padding:28px 26px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="oklch(0.78 0.14 205)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:oklch(0.97 0.005 255);margin-top:16px;">~120ms</div>
+        <div style="font-size:15px;color:oklch(0.58 0.02 255);margin-top:6px;">Latencia extremo a extremo (cliente → BD)</div>
+      </div>
+      <div style="background:oklch(0.24 0.03 255 / 0.55);backdrop-filter:blur(14px);border:1px solid oklch(1 0 0 / 0.1);border-radius:18px;padding:28px 26px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="oklch(0.75 0.15 150)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"></path></svg>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:oklch(0.97 0.005 255);margin-top:16px;">99.9%</div>
+        <div style="font-size:15px;color:oklch(0.58 0.02 255);margin-top:6px;">Disponibilidad objetivo (SLA)</div>
+      </div>
+      <div style="background:oklch(0.24 0.03 255 / 0.55);backdrop-filter:blur(14px);border:1px solid oklch(1 0 0 / 0.1);border-radius:18px;padding:28px 26px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="oklch(0.78 0.13 75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:oklch(0.97 0.005 255);margin-top:16px;">3x</div>
+        <div style="font-size:15px;color:oklch(0.58 0.02 255);margin-top:6px;">Capacidad de réplicas ante demanda</div>
+      </div>
+      <div style="background:oklch(0.24 0.03 255 / 0.55);backdrop-filter:blur(14px);border:1px solid oklch(1 0 0 / 0.1);border-radius:18px;padding:28px 26px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="oklch(0.78 0.14 205)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:oklch(0.97 0.005 255);margin-top:16px;">Zero-trust</div>
+        <div style="font-size:15px;color:oklch(0.58 0.02 255);margin-top:6px;">Seguridad en cada capa de la red</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:28px 120px 40px;border-top:1px solid oklch(1 0 0 / 0.08);display:flex;gap:64px;">
+    <div style="flex:1;"><div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;color:oklch(0.97 0.005 255);margin-bottom:8px;">Continuidad operativa</div><div style="font-size:16px;color:oklch(0.6 0.02 255);line-height:1.5;">Infraestructura redundante que reduce el riesgo de caídas y protege la operación diaria.</div></div>
+    <div style="flex:1;"><div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;color:oklch(0.97 0.005 255);margin-bottom:8px;">Escalabilidad de negocio</div><div style="font-size:16px;color:oklch(0.6 0.02 255);line-height:1.5;">Crece con la demanda sin rediseñar la plataforma ni detener el servicio.</div></div>
+    <div style="flex:1;"><div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;color:oklch(0.97 0.005 255);margin-bottom:8px;">Trazabilidad y control</div><div style="font-size:16px;color:oklch(0.6 0.02 255);line-height:1.5;">Cada petición queda registrada, medible y auditable de punta a punta.</div></div>
+  </div>
+</section>
+
+<section data-label="Arquitectura" data-speaker-notes="Simular la petición para mostrar el recorrido cliente-servidor-BD en vivo." style="width:1920px;height:1080px;background:oklch(0.14 0.02 255);position:relative;overflow:hidden;font-family:'IBM Plex Sans',sans-serif;display:flex;flex-direction:column;">
+  <div style="position:absolute;inset:0;background:radial-gradient(1000px 500px at 10% -10%, oklch(0.3 0.06 205 / 0.3), transparent 60%);pointer-events:none;"></div>
+
+  <div style="position:relative;z-index:2;display:flex;gap:8px;padding:28px 90px 0;font-family:'IBM Plex Sans',sans-serif;">
+    <sc-for list="{{ tabsSlide1 }}" as="tab" hint-placeholder-count="4">
+      <div onClick="{{ tab.goTo }}" style="{{ tab.style }}">{{ tab.label }}</div>
+    </sc-for>
+  </div>
+
+  <div style="padding:32px 90px 0;">
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:700;color:oklch(0.97 0.005 255);margin:0 0 6px 0;">Arquitectura e Infraestructura</h1>
+    <p style="font-size:17px;color:oklch(0.65 0.02 255);margin:0;">Recorrido real de una petición: navegador del cliente → edge → proxy → aplicación → caché → base de datos.</p>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:16px;padding:22px 90px 0;">
+    <button onClick="{{ runSimulation }}" disabled="{{ simRunning }}" style="{{ playButtonStyle }}">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="oklch(0.14 0.02 255)" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      <span>{{ playButtonLabel }}</span>
+    </button>
+    <button onClick="{{ resetSimulation }}" style="display:flex;align-items:center;gap:8px;background:transparent;border:1px solid oklch(1 0 0 / 0.15);color:oklch(0.7 0.02 255);font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:500;padding:13px 20px;border-radius:12px;cursor:pointer;">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+      Reiniciar
+    </button>
+    <div style="flex:1;"></div>
+    <div style="{{ responseBadgeStyle }}">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+      <span style="font-family:'IBM Plex Mono',monospace;">{{ responseBadgeText }}</span>
+    </div>
+  </div>
+
+  <div style="padding:36px 90px 0;position:relative;">
+    <div style="position:relative;height:210px;">
+      <div style="position:absolute;left:70px;right:70px;top:78px;height:3px;background:oklch(1 0 0 / 0.08);border-radius:2px;"></div>
+      <div style="position:absolute;left:70px;top:78px;height:3px;background:linear-gradient(90deg, oklch(0.78 0.14 205), oklch(0.6 0.13 205));border-radius:2px;transition:width 0.5s ease;width:{{ progressLineWidth }};"></div>
+      <div style="position:absolute;top:66px;transition:left 0.5s cubic-bezier(.4,0,.2,1);left:{{ dotLeftPercent }};transform:translateX(-50%);">
+        <div style="{{ dotStyle }}"></div>
+      </div>
+
+      <div style="position:absolute;top:0;left:70px;transform:translateX(-50%);width:150px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="{{ nodeCircleStyle0 }}">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+        </div>
+        <div style="{{ nodeLabelStyle0 }}">Cliente</div>
+        <div style="font-size:12.5px;color:oklch(0.55 0.02 255);margin-top:2px;">Navegador / App</div>
+      </div>
+
+      <div style="position:absolute;top:0;left:calc(70px + 1*(100% - 140px)/5);transform:translateX(-50%);width:150px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="{{ nodeCircleStyle1 }}">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"></path></svg>
+        </div>
+        <div style="{{ nodeLabelStyle1 }}">Cloudflare</div>
+        <div style="font-size:12.5px;color:oklch(0.55 0.02 255);margin-top:2px;">Edge · WAF · TLS</div>
+      </div>
+
+      <div style="position:absolute;top:0;left:calc(70px + 2*(100% - 140px)/5);transform:translateX(-50%);width:150px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="{{ nodeCircleStyle2 }}">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M9 9h.01"></path><path d="M15 9h.01"></path><path d="M9 15h6"></path></svg>
+        </div>
+        <div style="{{ nodeLabelStyle2 }}">Nginx</div>
+        <div style="font-size:12.5px;color:oklch(0.55 0.02 255);margin-top:2px;">Reverse proxy · balanceo</div>
+      </div>
+
+      <div style="position:absolute;top:0;left:calc(70px + 3*(100% - 140px)/5);transform:translateX(-50%);width:160px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="{{ nodeCircleStyle3 }}">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
+        </div>
+        <div style="{{ nodeLabelStyle3 }}">Contenedores</div>
+        <div style="font-size:12.5px;color:oklch(0.55 0.02 255);margin-top:2px;">App · 3 réplicas</div>
+      </div>
+
+      <div style="position:absolute;top:0;left:calc(70px + 4*(100% - 140px)/5);transform:translateX(-50%);width:150px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="{{ nodeCircleStyle4 }}">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg>
+        </div>
+        <div style="{{ nodeLabelStyle4 }}">Cache</div>
+        <div style="font-size:12.5px;color:oklch(0.55 0.02 255);margin-top:2px;">Redis</div>
+      </div>
+
+      <div style="position:absolute;top:0;right:70px;transform:translateX(50%);width:150px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="{{ nodeCircleStyle5 }}">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 5V19A9 3 0 0 1 3 19V5"></path><path d="M3 12A9 3 0 0 0 21 12"></path></svg>
+        </div>
+        <div style="{{ nodeLabelStyle5 }}">Base de Datos</div>
+        <div style="font-size:12.5px;color:oklch(0.55 0.02 255);margin-top:2px;">PostgreSQL</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex:1;display:flex;gap:24px;padding:20px 90px 44px;min-height:0;">
+    <div style="flex:1.3;background:oklch(0.19 0.025 255 / 0.7);border:1px solid oklch(1 0 0 / 0.08);border-radius:16px;padding:20px 24px;overflow:auto;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.55 0.02 255);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;">Logs de la petición</div>
+      <sc-for list="{{ visibleLogs }}" as="log" hint-placeholder-count="0">
+        <div style="display:flex;align-items:baseline;gap:14px;padding:7px 0;border-bottom:1px solid oklch(1 0 0 / 0.05);font-family:'IBM Plex Mono',monospace;font-size:14px;animation:fadeUp 0.35s ease;">
+          <span style="color:oklch(0.5 0.02 255);width:70px;flex-shrink:0;">{{ log.cumMs }}ms</span>
+          <span style="color:oklch(0.78 0.14 205);flex-shrink:0;">●</span>
+          <span style="color:oklch(0.85 0.01 255);">{{ log.label }}</span>
+          <span style="color:oklch(0.55 0.02 255);">— {{ log.detail }}</span>
+        </div>
+      </sc-for>
+      <sc-if value="{{ isIdle }}" hint-placeholder-val="{{ false }}">
+        <div style="color:oklch(0.5 0.02 255);font-family:'IBM Plex Mono',monospace;font-size:14px;padding:10px 0;">Presiona “Simular Petición” para ver el recorrido en tiempo real.</div>
+      </sc-if>
+    </div>
+    <div style="flex:1;background:oklch(0.19 0.025 255 / 0.7);border:1px solid oklch(1 0 0 / 0.08);border-radius:16px;padding:20px 24px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.55 0.02 255);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;">Response Payload</div>
+      <sc-if value="{{ simDone }}" hint-placeholder-val="{{ false }}">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:oklch(0.75 0.15 150);line-height:1.7;">
+          <div>HTTP/1.1 200 OK</div>
+          <div style="color:oklch(0.7 0.02 255);">content-type: application/json</div>
+          <div style="color:oklch(0.7 0.02 255);">x-response-time: {{ totalMs }}ms</div>
+          <div style="color:oklch(0.7 0.02 255);">x-cache: HIT</div>
+          <div style="margin-top:10px;color:oklch(0.8 0.01 255);">{ "status": "ok", "data": {"..."}}</div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isNotDone }}" hint-placeholder-val="{{ true }}">
+        <div style="color:oklch(0.45 0.02 255);font-family:'IBM Plex Mono',monospace;font-size:14px;">— esperando respuesta —</div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<section data-label="Módulos" data-speaker-notes="Módulos principales del sistema; clic en cada tarjeta para ver detalle." style="width:1920px;height:1080px;background:oklch(0.14 0.02 255);position:relative;overflow:hidden;font-family:'IBM Plex Sans',sans-serif;display:flex;flex-direction:column;">
+  <div style="position:absolute;inset:0;background:radial-gradient(1000px 500px at 90% 110%, oklch(0.3 0.06 205 / 0.28), transparent 60%);pointer-events:none;"></div>
+
+  <div style="position:relative;z-index:2;display:flex;gap:8px;padding:28px 90px 0;font-family:'IBM Plex Sans',sans-serif;">
+    <sc-for list="{{ tabsSlide2 }}" as="tab" hint-placeholder-count="4">
+      <div onClick="{{ tab.goTo }}" style="{{ tab.style }}">{{ tab.label }}</div>
+    </sc-for>
+  </div>
+
+  <div style="padding:36px 90px 0;">
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:700;color:oklch(0.97 0.005 255);margin:0 0 6px 0;">Módulos Principales</h1>
+    <p style="font-size:17px;color:oklch(0.65 0.02 255);margin:0;">Componentes funcionales del sistema. Haz clic en una tarjeta para ver el detalle.</p>
+  </div>
+
+  <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding:36px 90px 60px;">
+    <sc-for list="{{ modules }}" as="mod" hint-placeholder-count="6">
+      <div onClick="{{ mod.toggle }}" style="{{ mod.cardStyle }}">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div style="{{ mod.iconWrapStyle }}" dangerouslySetInnerHTML="{{ mod.iconHtml }}"></div>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.02 255)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="{{ mod.chevronStyle }}"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;color:oklch(0.97 0.005 255);margin-top:18px;">{{ mod.name }}</div>
+        <div style="font-size:15px;color:oklch(0.62 0.02 255);margin-top:8px;line-height:1.5;">{{ mod.summary }}</div>
+        <sc-if value="{{ mod.expanded }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:18px;padding-top:18px;border-top:1px solid oklch(1 0 0 / 0.1);animation:fadeUp 0.25s ease;">
+            <sc-for list="{{ mod.details }}" as="d" hint-placeholder-count="3">
+              <div style="display:flex;gap:10px;font-size:14.5px;color:oklch(0.72 0.02 255);padding:5px 0;">
+                <span style="color:oklch(0.78 0.14 205);">→</span><span>{{ d }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section data-label="Roadmap" data-speaker-notes="Plan de salida a producción y siguientes pasos." style="width:1920px;height:1080px;background:oklch(0.14 0.02 255);position:relative;overflow:hidden;font-family:'IBM Plex Sans',sans-serif;display:flex;flex-direction:column;">
+  <div style="position:absolute;inset:0;background:radial-gradient(1000px 500px at 10% -10%, oklch(0.3 0.06 205 / 0.3), transparent 60%);pointer-events:none;"></div>
+
+  <div style="position:relative;z-index:2;display:flex;gap:8px;padding:28px 90px 0;font-family:'IBM Plex Sans',sans-serif;">
+    <sc-for list="{{ tabsSlide3 }}" as="tab" hint-placeholder-count="4">
+      <div onClick="{{ tab.goTo }}" style="{{ tab.style }}">{{ tab.label }}</div>
+    </sc-for>
+  </div>
+
+  <div style="padding:36px 90px 0;">
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:700;color:oklch(0.97 0.005 255);margin:0 0 6px 0;">Roadmap · Salida a Producción</h1>
+    <p style="font-size:17px;color:oklch(0.65 0.02 255);margin:0;">Fases del proyecto hacia el despliegue final.</p>
+  </div>
+
+  <div style="flex:1;display:flex;padding:60px 90px 70px;gap:0;position:relative;">
+    <sc-for list="{{ phases }}" as="phase" hint-placeholder-count="4">
+      <div style="flex:1;position:relative;padding:0 20px;">
+        <div style="position:relative;height:26px;">
+          <div style="{{ phase.connectorStyle }}"></div>
+          <div style="{{ phase.dotOuterStyle }}">
+            <div style="{{ phase.dotInnerStyle }}"></div>
+          </div>
+        </div>
+        <div style="margin-top:28px;background:oklch(0.22 0.03 255 / 0.55);backdrop-filter:blur(10px);border:1px solid oklch(1 0 0 / 0.1);border-radius:16px;padding:24px 22px;height:100%;">
+          <div style="{{ phase.badgeStyle }}">{{ phase.statusLabel }}</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:600;color:oklch(0.97 0.005 255);margin-top:14px;">{{ phase.name }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:oklch(0.55 0.02 255);margin-top:4px;">{{ phase.dateRange }}</div>
+          <sc-for list="{{ phase.items }}" as="it" hint-placeholder-count="3">
+            <div style="display:flex;gap:8px;font-size:14px;color:oklch(0.68 0.02 255);padding:6px 0;line-height:1.4;">
+              <span style="color:oklch(0.78 0.14 205);flex-shrink:0;">•</span><span>{{ it }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1920, &quot;height&quot;: 1080}, &quot;accentColor&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;oklch(0.78 0.14 205)&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;oklch(0.78 0.14 205)&quot;, &quot;oklch(0.75 0.15 250)&quot;, &quot;oklch(0.78 0.13 165)&quot;, &quot;oklch(0.75 0.15 25)&quot;], &quot;section&quot;: &quot;Tema&quot;}, &quot;simSpeed&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;Normal&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;Lenta&quot;, &quot;Normal&quot;, &quot;Rápida&quot;], &quot;section&quot;: &quot;Simulación&quot;}}">
+const STAGES = [
+  { key: 'client', label: 'Cliente', detail: 'Solicitud HTTPS iniciada', ms: 0 },
+  { key: 'cloudflare', label: 'Cloudflare Edge', detail: 'Filtrado DDoS + TLS termination', ms: 18 },
+  { key: 'nginx', label: 'Nginx', detail: 'Balanceo de carga entre réplicas', ms: 6 },
+  { key: 'container', label: 'Contenedor App', detail: 'Procesamiento de lógica de negocio', ms: 42 },
+  { key: 'cache', label: 'Cache Redis', detail: 'Lookup en caché', ms: 4 },
+  { key: 'database', label: 'Base de Datos', detail: 'Consulta SQL ejecutada', ms: 31 },
+];
+
+const MODULES_META = [
+  { key: 'auth', name: 'Autenticación & Accesos', summary: 'Gestión de identidad, roles y sesiones seguras.',
+    details: ['Single sign-on corporativo', 'Control de roles y permisos', 'Registro de auditoría de accesos'],
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>' },
+  { key: 'gateway', name: 'API Gateway', summary: 'Punto único de entrada para todos los servicios.',
+    details: ['Enrutamiento inteligente', 'Rate limiting y throttling', 'Versionado de endpoints'],
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"></path></svg>' },
+  { key: 'logic', name: 'Lógica de Negocio', summary: 'Reglas y procesos core de la operación.',
+    details: ['Motores de reglas configurables', 'Procesamiento transaccional', 'Validaciones en tiempo real'],
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>' },
+  { key: 'reporting', name: 'Reportería & Analítica', summary: 'Indicadores en tiempo real para toma de decisiones.',
+    details: ['Dashboards ejecutivos', 'Exportación programada', 'Alertas por umbral'],
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>' },
+  { key: 'integrations', name: 'Integraciones', summary: 'Conexión con sistemas y servicios externos.',
+    details: ['Webhooks y colas de mensajes', 'Conectores a terceros', 'Sincronización por lotes'],
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"></path><path d="m2 17 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg>' },
+  { key: 'security', name: 'Seguridad & Cumplimiento', summary: 'Protección de datos y cumplimiento normativo.',
+    details: ['Cifrado en tránsito y reposo', 'Escaneo de vulnerabilidades', 'Cumplimiento regulatorio'],
+    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"></path></svg>' },
+];
+
+const PHASES_META = [
+  { name: 'Desarrollo', dateRange: 'Completado', status: 'done', items: ['Arquitectura definida', 'Módulos core construidos', 'Pruebas unitarias'] },
+  { name: 'QA & Staging', dateRange: 'En curso', status: 'active', items: ['Pruebas de carga', 'Revisión de seguridad', 'UAT con áreas clave'] },
+  { name: 'Piloto Controlado', dateRange: 'Próximo', status: 'pending', items: ['Despliegue a grupo reducido', 'Monitoreo intensivo', 'Ajustes de rendimiento'] },
+  { name: 'Producción', dateRange: 'Planificado', status: 'pending', items: ['Salida general', 'Plan de rollback', 'Soporte post-lanzamiento'] },
+];
+
+class Component extends DCLogic {
+  state = { simStage: -1, phase: 'idle', expanded: null, timers: [] };
+
+  clearTimers() { this.state.timers.forEach(t => clearTimeout(t)); }
+  componentWillUnmount() { this.clearTimers(); }
+
+  runSimulation() {
+    if (this.state.phase === 'forward' || this.state.phase === 'return') return;
+    this.clearTimers();
+    const step = this.props.simSpeed === 'Rápida' ? 320 : this.props.simSpeed === 'Lenta' ? 900 : 550;
+    const timers = [];
+    this.setState({ simStage: -1, phase: 'forward' });
+    STAGES.forEach((s, i) => {
+      timers.push(setTimeout(() => this.setState({ simStage: i }), step * (i + 1)));
+    });
+    const returnAt = step * (STAGES.length + 1);
+    timers.push(setTimeout(() => this.setState({ phase: 'return' }), returnAt));
+    timers.push(setTimeout(() => this.setState({ phase: 'done' }), returnAt + step));
+    this.state.timers = timers;
+  }
+
+  resetSimulation() {
+    this.clearTimers();
+    this.setState({ simStage: -1, phase: 'idle' });
+  }
+
+  toggleModule(key) {
+    this.setState(s => ({ expanded: s.expanded === key ? null : key }));
+  }
+
+  goToSlide(n) {
+    const el = document.querySelector('deck-stage');
+    if (el && el.goTo) el.goTo(n);
+  }
+
+  renderVals() {
+    const accent = this.props.accentColor || 'oklch(0.78 0.14 205)';
+    const { simStage, phase, expanded } = this.state;
+    const total = STAGES.length - 1;
+    const isRunning = phase === 'forward' || phase === 'return';
+    const isDone = phase === 'done';
+    const isIdle = phase === 'idle';
+
+    let dotPct;
+    if (phase === 'idle') dotPct = 0;
+    else if (phase === 'forward') dotPct = simStage < 0 ? 0 : (simStage / total) * 100;
+    else dotPct = 0; // returning / done -> snaps back to client
+
+    const dotLeftPercent = `calc(70px + ${dotPct.toFixed(2)}*(100% - 140px)/${total})`;
+
+    let cum = 0;
+    const visibleLogs = (phase === 'idle') ? [] : STAGES.slice(0, simStage + 1).map(s => {
+      cum += s.ms;
+      return { label: s.label, detail: s.detail, cumMs: cum };
+    });
+    const totalMs = STAGES.reduce((a, s) => a + s.ms, 0) + 22;
+
+    const nodeStyles = {};
+    STAGES.forEach((s, i) => {
+      const passed = phase !== 'idle' && (simStage > i || (simStage === i) || isDone || phase === 'return');
+      const active = phase === 'forward' && simStage === i;
+      nodeStyles['nodeCircleStyle' + i] = `width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;transition:all 0.35s ease;` +
+        (passed || isDone
+          ? `background:${accent};color:oklch(0.14 0.02 255);box-shadow:0 0 24px 2px ${accent.replace(')', ' / 0.4)')};`
+          : `background:oklch(0.22 0.03 255 / 0.8);color:oklch(0.55 0.02 255);border:1px solid oklch(1 0 0 / 0.1);`) +
+        (active ? `transform:scale(1.12);` : '');
+      nodeStyles['nodeLabelStyle' + i] = `font-size:14px;font-weight:600;margin-top:12px;color:${(passed || isDone) ? 'oklch(0.97 0.005 255)' : 'oklch(0.6 0.02 255)'};transition:color 0.3s ease;`;
+    });
+
+    const progressLineWidth = phase === 'idle' ? '0%' : phase === 'forward' ? `${(simStage < 0 ? 0 : simStage / total) * 100}%` : (isDone || phase === 'return') ? '0%' : '0%';
+
+    const tabLabels = ['Propósito', 'Arquitectura', 'Módulos', 'Roadmap'];
+    const tabsFor = (activeIdx) => tabLabels.map((t, i) => ({
+      label: t,
+      goTo: () => this.goToSlide(i),
+      style: `padding:9px 18px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s ease;` +
+        (i === activeIdx
+          ? `background:${accent};color:oklch(0.14 0.02 255);border:none;`
+          : `background:transparent;color:oklch(0.6 0.02 255);border:1px solid oklch(1 0 0 / 0.12);`)
+    }));
+
+    const modules = MODULES_META.map(m => {
+      const isOpen = expanded === m.key;
+      return {
+        name: m.name, summary: m.summary, details: m.details, expanded: isOpen,
+        toggle: () => this.toggleModule(m.key),
+        iconHtml: { __html: m.icon },
+        iconWrapStyle: `width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:${isOpen ? accent : 'oklch(0.24 0.03 255)'};color:${isOpen ? 'oklch(0.14 0.02 255)' : accent};transition:all 0.25s ease;`,
+        chevronStyle: `transition:transform 0.25s ease;transform:rotate(${isOpen ? 180 : 0}deg);`,
+        cardStyle: `background:oklch(0.2 0.028 255 / 0.55);backdrop-filter:blur(12px);border:1px solid ${isOpen ? accent.replace(')', ' / 0.5)') : 'oklch(1 0 0 / 0.1)'};border-radius:18px;padding:26px 26px;cursor:pointer;transition:all 0.25s ease;`
+      };
+    });
+
+    const statusColors = { done: 'oklch(0.75 0.15 150)', active: accent, pending: 'oklch(0.55 0.02 255)' };
+    const statusLabels = { done: 'Completado', active: 'En curso', pending: 'Pendiente' };
+    const phases = PHASES_META.map(p => ({
+      name: p.name, dateRange: p.dateRange, items: p.items, statusLabel: statusLabels[p.status],
+      connectorStyle: `position:absolute;top:12px;left:0;right:0;height:2px;background:oklch(1 0 0 / 0.1);`,
+      dotOuterStyle: `position:absolute;top:0;left:calc(50% - 13px);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:oklch(0.14 0.02 255);border:2px solid ${statusColors[p.status]};`,
+      dotInnerStyle: `width:12px;height:12px;border-radius:50%;background:${statusColors[p.status]};`,
+      badgeStyle: `display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;padding:5px 12px;border-radius:999px;color:${p.status === 'pending' ? 'oklch(0.75 0.02 255)' : 'oklch(0.14 0.02 255)'};background:${p.status === 'pending' ? 'oklch(1 0 0 / 0.08)' : statusColors[p.status]};`,
+    }));
+
+    return {
+      tabsSlide0: tabsFor(0), tabsSlide1: tabsFor(1), tabsSlide2: tabsFor(2), tabsSlide3: tabsFor(3),
+      runSimulation: () => this.runSimulation(),
+      resetSimulation: () => this.resetSimulation(),
+      simRunning: isRunning,
+      playButtonLabel: isRunning ? 'Simulando…' : 'Simular Petición',
+      playButtonStyle: `display:flex;align-items:center;gap:10px;background:${accent};color:oklch(0.14 0.02 255);font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:700;padding:13px 24px;border-radius:12px;border:none;cursor:${isRunning ? 'default' : 'pointer'};opacity:${isRunning ? 0.7 : 1};`,
+      responseBadgeStyle: `display:flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;font-size:13.5px;font-weight:600;transition:all 0.3s ease;` +
+        (isDone ? `background:oklch(0.75 0.15 150 / 0.18);color:oklch(0.75 0.15 150);` : `background:oklch(1 0 0 / 0.06);color:oklch(0.5 0.02 255);`),
+      responseBadgeText: isDone ? `200 OK · ${totalMs}ms` : 'En espera',
+      dotLeftPercent, progressLineWidth,
+      dotStyle: `width:16px;height:16px;border-radius:50%;background:${accent};animation:${isRunning ? 'pulseDot 0.9s infinite' : 'none'};opacity:${phase === 'idle' ? 0.3 : 1};transition:opacity 0.3s ease;`,
+      ...nodeStyles,
+      visibleLogs, isIdle, simDone: isDone, isNotDone: !isDone, totalMs,
+      modules, phases,
+    };
+  }
+}
+</script>
+</body>
+</html>
