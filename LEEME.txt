@@ -1,0 +1,14 @@
+INFORME DE READINESS DE PRODUCCIÓN — GALAC ERP (e-factura)
+Generado: 20 de agosto de 2026
+
+Contenido del paquete:
+1. informe-readiness.html
+   Versión visual interactiva y animada del informe. Abrir con doble clic
+   en cualquier navegador (no requiere internet ni servidor). Soporta modo
+   claro/oscuro automático según el sistema.
+2. INFORME_READINESS_PRODUCCION_2026-08-20.md
+   Versión completa en Markdown con toda la evidencia detallada, la matriz
+   de riesgos extendida y el prompt adaptado (Anexo B).
+
+Recomendación final: GO CON CONDICIONES (alcance MVP) — 53/80 (66%).
+Fecha de corte para las condiciones: 4 de septiembre de 2026.
